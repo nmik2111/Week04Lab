@@ -14,8 +14,8 @@
     <body>
         <h1>Simple Note Keeper</h1>
         <h2>Edit Note</h2>
-        <p><b>Title: </b><input type="text" name="etitle" value="${etitle}"></p>
-        <p><b>Contents: </b><br>${contents}</p>
+        <p><b>Title: </b><input type="text" name="etitle" value="This is the Title"></p>
+        <p><b>Contents: </b><textarea name="econtents" value="${econtents}">Contents go here</textarea></p>
         
         <input type="submit" value="Save">
         

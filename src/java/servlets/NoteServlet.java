@@ -17,14 +17,15 @@ public class NoteServlet extends HttpServlet {
             throws ServletException, IOException {
         request.setAttribute("title", "This is the title");
         request.setAttribute("contents", "Contents go here");
-        getServletContext().getRequestDispatcher("/WEB-INF/viewnote.jsp")
-                .forward(request, response);
         
         String edit = request.getParameter("edit");
         if (edit != null) {
             getServletContext().getRequestDispatcher("/WEB-INF/editnote.jsp")
                 .forward(request, response);
-        } 
+        } else {
+            getServletContext().getRequestDispatcher("/WEB-INF/viewnote.jsp")
+                .forward(request, response);
+        }
     }
 
     @Override
