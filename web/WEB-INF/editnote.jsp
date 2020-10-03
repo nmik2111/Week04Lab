@@ -17,7 +17,7 @@
         <p><b>Title: </b><input type="text" name="etitle" value="This is the Title"></p>
         <p><b>Contents: </b><textarea name="econtents" value="${econtents}">Contents go here</textarea></p>
         
-        <input type="submit" value="Save">
+        <input type="button" value="Save" onclick="Note()">
         
     </body>
 </html>
