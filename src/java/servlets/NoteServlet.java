@@ -29,14 +29,13 @@ public class NoteServlet extends HttpServlet {
             // to read files
             BufferedReader br = new BufferedReader(new FileReader(new File(path)));
             
-                while(br.readLine() != null){
-                    String title = br.readLine();
-                    String contents = br.readLine();
-                    br.close();
+            String title = br.readLine();
+            String contents = br.readLine();
                     
-                    Note note = new Note (title, contents);
-                    request.setAttribute("note", note);
-                }
+            br.close();
+            
+            Note note = new Note (title, contents);
+            request.setAttribute("note", note);
             
         } catch (IOException e) {
             e.printStackTrace();
@@ -61,13 +60,19 @@ public class NoteServlet extends HttpServlet {
         
         String title = request.getParameter("title");
         String contents = request.getParameter("contents");
+        Note note = new Note (title, contents);
+        request.setAttribute("note", note);
+
         try {
             String path = getServletContext().getRealPath("/WEB-INF/note.txt");
             // to write to a file
             PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(path, false)));
+            
             pw.println(title);
             pw.println(contents);
+                    
             pw.close();
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
